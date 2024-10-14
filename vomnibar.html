@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html data-version="1.73">
+<head>
+    <meta charset="utf-8">
+    <title>Vomnibar of Vimium C</title>
+    <style>
+        :root {
+            --background-color: #ffffff;
+            --text-color: #000000;
+            --border-color: #e8e8e8;
+            --input-background: #f0f0f0;
+            --input-border: #e0e0e0;
+            --item-hover-background: #e0e0e0;
+            --toolbar-color: #666666;
+            --button-hover-background: #d0d0d0;
+            --link-color: #1a73e8;
+            --match-color: #000000;
+            --match-decoration: underline;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #121212;
+                --text-color: #e0e0e0;
+                --border-color: #333333;
+                --input-background: #1e1e1e;
+                --input-border: #2c2c2c;
+                --item-hover-background: #333333;
+                --toolbar-color: #999999;
+                --button-hover-background: #444444;
+                --link-color: #8ab4f8;
+                --match-color: #e0e0e0;
+                --match-decoration: none;
+            }
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 9px 12px 10px;
+            overflow: hidden;
+            padding: 0;
+            position: relative;
+            white-space: nowrap;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #bar {
+            background: var(--background-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        #input {
+            background: var(--input-background);
+            border: 1px solid var(--input-border);
+            border-radius: 20px;
+            color: var(--text-color);
+            font-size: 20px;
+            height: 34px;
+            outline: none;
+            padding: 4px 15px;
+            width: 100%;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        #list {
+            background: var(--background-color);
+            transition: background-color 0.3s;
+        }
+
+        .item {
+            border-bottom: 1px solid var(--border-color);
+            border-radius: 20px;
+            margin: 5px 0;
+            padding: 10px 20px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .item:hover {
+            background-color: var(--item-hover-background);
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        match {
+            color: var(--match-color);
+            font-weight: bold;
+            text-decoration: var(--match-decoration);
+        }
+    </style>
+</head>
+<body>
+    <div id="bar">
+        <input type="text" autocomplete="off" id="input" spellcheck="false" />
+    </div>
+    <div id="list">
+        <script type="text/x-template" id="template">
+            <div class="item">
+                <div class="top">
+                    <span class="title">{{title}}</span>
+                </div>
+                <div class="bottom">
+                    <a>{{textSplit}}</a>
+                </div>
+            </div>
+        </script>
+    </div>
+</body>
+</html>
